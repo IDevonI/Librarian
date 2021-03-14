@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="130.0" prefWidth="200.0" style="-fx-border-color: #9C5a0b; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stud.devon.controllers.InfoBoxController">
+   <children>
+      <Label fx:id="message" alignment="CENTER" layoutX="18.0" layoutY="14.0" prefHeight="72.0" prefWidth="165.0" textAlignment="CENTER" textFill="#5aa82c" wrapText="true" />
+      <Button fx:id="okButton" layoutX="75.0" layoutY="90.0" mnemonicParsing="false" onAction="#okAction" prefWidth="50.0" style="-fx-background-color: #9C5a0b; -fx-background-radius: 20;" text="OK" textFill="WHITE" />
+   </children>
+</AnchorPane>

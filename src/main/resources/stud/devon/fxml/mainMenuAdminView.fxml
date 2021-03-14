@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-border-color: #9c5a0b; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stud.devon.controllers.MainMenuAdminController">
+   <children>
+      <GridPane alignment="CENTER" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #9c5a0b;">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="99.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="278.99999237060547" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="356.0" minWidth="10.0" prefWidth="103.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="502.0" minWidth="10.0" prefWidth="262.0000305175781" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.00003051757812" minWidth="10.0" prefWidth="84.99996948242188" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="43.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="107.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <MenuButton fx:id="userButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="106.0" style="-fx-background-color: #9c5a0b;" text="User" textFill="WHITE" GridPane.columnIndex="6">
+              <items>
+                <MenuItem fx:id="aboutButton" mnemonicParsing="false" onAction="#showAboutPane" text="About me" />
+                <MenuItem fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" text="Logout" />
+              </items>
+               <font>
+                  <Font name="Serif Italic" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </MenuButton>
+            <ImageView fitHeight="30.0" fitWidth="30.0" GridPane.columnIndex="5">
+               <image>
+                  <Image url="@../images/avatar.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="booksButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showBooksTable" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #9c5a0b;" text="Books" textFill="WHITE">
+               <font>
+                  <Font name="Serif Italic" size="24.0" />
+               </font>
+            </Button>
+          <Button fx:id="loansButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showLoansTable" prefHeight="45.0" prefWidth="93.0" style="-fx-background-color: #9c5a0b;" text="Loans" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Serif Italic" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="usersButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showUsersTable" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: #9c5a0b;" text="Users" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Serif Italic" size="24.0" />
+               </font>
+            </Button>
+            <HBox fx:id="bookSerialization" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="3">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backUpBooks" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #9C5A0B;" translateX="50.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/backUp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadBackUpBooks" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #9C5A0B;" translateX="100.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/loadBackUp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="loanSerialization" layoutX="312.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="3">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backUpLoans" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #9C5A0B;" translateX="50.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/backUp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadBackUpLoans" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #9C5A0B;" translateX="100.0">
+                     <graphic>
+                        <ImageView fx:id="loadBackUpBooks1" fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/loadBackUp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="userSerialization" layoutX="312.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" visible="false" GridPane.columnIndex="3">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#backUpUsers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #9C5A0B;" translateX="50.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/backUp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadBackUpUsers" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #9C5A0B;" translateX="100.0">
+                     <graphic>
+                        <ImageView fx:id="loadBackUpBooks11" fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/loadBackUp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Label fx:id="dateTime" alignment="CENTER" contentDisplay="CENTER" text="20.20.2020 19:20" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true" GridPane.columnIndex="4">
+               <font>
+                  <Font name="Serif Italic" size="14.0" />
+               </font></Label>
+         </children>
+      </GridPane>
+      <Line endX="-120.0" endY="-240.0" layoutX="220.0" layoutY="250.0" startX="-120.0" startY="-210.0" stroke="WHITE" />
+      <Line endX="-120.0" endY="-240.0" layoutX="320.0" layoutY="250.0" startX="-120.0" startY="-210.0" stroke="WHITE" />
+      <Line endX="-120.0" endY="-240.0" layoutX="425.0" layoutY="250.0" startX="-120.0" startY="-210.0" stroke="WHITE" />
+      <Line endX="-120.0" endY="-240.0" layoutX="770.0" layoutY="250.0" startX="-120.0" startY="-210.0" stroke="WHITE" />
+      <Line endX="-120.0" endY="-240.0" layoutX="685.0" layoutY="250.0" startX="-120.0" startY="-210.0" stroke="WHITE" />
+      <AnchorPane fx:id="aboutPane" layoutX="49.0" layoutY="80.0" prefHeight="393.0" prefWidth="461.0" style="-fx-border-color: #9c5a0b; -fx-border-radius: 30;" visible="false">
+         <children>
+            <GridPane layoutY="138.0" prefHeight="255.0" prefWidth="461.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="142.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="59.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="308.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="User ID:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Address:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Email:" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="User Type:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aboutUserId" text="Label" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aboutAddress" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aboutEmail" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aboutUserType" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <GridPane layoutX="136.0" prefHeight="134.0" prefWidth="325.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="89.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="43.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="202.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Name:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aboutName" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Surname:" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aboutSurname" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="30.0" layoutY="30.0">
+               <image>
+                  <Image url="@../images/user-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="5.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="775.0">
+         <children>
+            <TableView fx:id="booksTable" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="775.0" visible="false">
+              <columns>
+                <TableColumn fx:id="idColumn" editable="false" prefWidth="67.0" text="Book ID" />
+                <TableColumn fx:id="titleColumn" onEditCommit="#editTitle" prefWidth="258.0" text="Title" />
+                  <TableColumn fx:id="authorColumn" minWidth="0.0" onEditCommit="#editAuthor" prefWidth="137.0" text="Author" />
+                  <TableColumn fx:id="publisherColumn" minWidth="0.0" onEditCommit="#editPublisher" prefWidth="144.0" text="Publisher" />
+                  <TableColumn fx:id="categoryColumn" onEditCommit="#editCategory" prefWidth="124.0" text="Category" />
+                  <TableColumn fx:id="availableColumn" editable="false" prefWidth="60.0" text="Available" />
+                  <TableColumn fx:id="reservedColumn" editable="false" prefWidth="59.0" text="Reserved" />
+              </columns>
+            </TableView>
+            <TableView fx:id="loansTable" editable="true" prefHeight="450.0" prefWidth="775.0" visible="false">
+              <columns>
+                <TableColumn fx:id="bookIdColumn" onEditCommit="#editBookId" prefWidth="129.0" text="Book ID" />
+                <TableColumn fx:id="workerIdColumn" onEditCommit="#editWorkerId" prefWidth="129.0" text="Worker ID" />
+                  <TableColumn fx:id="clientIdColumn" onEditCommit="#editClientId" prefWidth="129.0" text="Client ID" />
+                  <TableColumn fx:id="loanDateColumn" onEditCommit="#editLoanDate" prefWidth="129.0" text="Loan Date" />
+                  <TableColumn fx:id="loanEndDateColumn" onEditCommit="#editLoanEndDate" prefWidth="129.0" text="Loan End Date" />
+                  <TableColumn fx:id="reservedByColumn" onEditCommit="#editReservedBy" prefWidth="129.0" text="Reserved By" />
+              </columns>
+            </TableView>
+            <TableView fx:id="usersTable" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="775.0" visible="false">
+              <columns>
+                  <TableColumn fx:id="userIdColumn" editable="false" prefWidth="55.0" text="User ID" />
+                  <TableColumn fx:id="surnameColumn" onEditCommit="#editSurname" prefWidth="108.0" text="Surname" />
+                  <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="68.0" text="Name" />
+                  <TableColumn fx:id="addressColumn" onEditCommit="#editAddress" prefWidth="170.0" text="Address" />
+                  <TableColumn fx:id="emailColumn" onEditCommit="#editEmail" prefWidth="150.0" text="Email" />
+                  <TableColumn fx:id="joinDateColumn" editable="false" prefWidth="76.0" text="Join Date" />
+                  <TableColumn fx:id="hireDateColumn" editable="false" prefWidth="70.0" text="Hire Date" />
+                  <TableColumn fx:id="adminRoleColumn" editable="false" prefWidth="77.0" text="Admin Role" />
+              </columns>
+            </TableView>
+            <Text fx:id="welcomeText" fill="#9c5a0b" layoutX="193.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Welcome User!" wrappingWidth="389.056640625">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #9C5A0B;">
+         <children>
+            <HBox fx:id="bookButtons" layoutX="20.0" layoutY="5.0" prefHeight="67.0" prefWidth="362.0" visible="false">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addBook" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteBook" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="60.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="60.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refreshBook" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="90.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/refresh.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="loanButtons" layoutX="20.0" layoutY="5.0" prefHeight="79.0" prefWidth="335.0" visible="false">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addLoan" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendReminder" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="220.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@../images/mail.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="60.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refreshLoan" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="90.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/refresh.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteLoan" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="-40.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="userButtons" layoutX="20.0" layoutY="5.0" prefHeight="79.0" prefWidth="250.0" visible="false">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addUser" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="30.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteUser" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="60.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="60.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refreshUser" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 30;" translateX="90.0">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0">
+                           <image>
+                              <Image url="@../images/refresh.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <TextArea fx:id="warningsField" editable="false" layoutX="400.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clearLog" prefHeight="31.0" prefWidth="300.0" promptText="No errors to show." style="-fx-text-fill: red;" />
+            <Text fill="WHITE" layoutX="400.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warnings:" wrappingWidth="100.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: #9c5a0b;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stud.devon.controllers.StartUpController">
+   <children>
+      <ImageView fitHeight="190.0" fitWidth="490.0">
+         <image>
+            <Image url="@../images/books.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="startingText" prefHeight="60.0" prefWidth="200.0" text="Starting up..." textAlignment="CENTER" translateX="-110.0" translateY="-50.0">
+         <font>
+            <Font name="Lucida Console" size="22.0" />
+         </font>
+         <textFill>
+            <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff6715" />
+                  <Stop color="#d0d0d0" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ProgressBar prefWidth="180.0" style="-fx-background-color: #d0d0d0;" translateX="-120.0" translateY="-30.0">
+         <effect>
+            <SepiaTone />
+         </effect>
+      </ProgressBar>
+   </children>
+</StackPane>
